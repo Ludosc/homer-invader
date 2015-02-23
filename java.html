@@ -1,0 +1,78 @@
+<!ductype html>
+
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8">
+</head>
+<script></script>
+<style>
+    canvas {
+        display: block;
+        position: absolute;
+        margin: auto;
+        background-color: red;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    img {
+        display: none;
+    }
+</style>
+
+<body onload="start()">
+    <script>
+        var c, ctx, homerX = 30,
+            homerVX = 1,
+            homerVY = 0,
+            homerY = 100,
+            homerimg;
+
+        function start() {
+            c = document.getElementById("duk");
+            ctx = c.getContext("2d");
+
+            homerimg = document.getElementById("homer");
+
+            window.setInterval(update, 20);
+        }
+
+        function update() {
+            updatePositions();
+            repaint();
+        }
+
+        function updatePositions() {
+            homerX += homerVX;
+            homerY += homerVY;
+            ctx.clearRect(0, 0, 400, 700)
+
+
+            if (homerX > 380) {
+                homerVX = 0;
+                homerVY = 1;
+                homerX = 380;
+            }
+            if (homerY > 150) {
+                homerVY = 0;
+                homerVX = -1;
+
+            }
+            if
+
+        }
+
+        function repaint() {
+            console.log(homerX);
+            ctx.drawImage(homerimg, homerX, homerY, 20, 30);
+        }
+    </script>
+    <canvas id="duk" height="700" width="400"></canvas>
+    <img src="Homer-Simpson-woohoo.png" id="homer">
+</body>
+
+
+
+</html>
